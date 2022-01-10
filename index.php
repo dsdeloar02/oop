@@ -20,12 +20,17 @@
       class Fruit {
         public $name;
         public $color;
+        const NAME = "Deluar Hossain Khan";
 
         public function __construct($name, $color) {
           $this->name = $name;
           $this->color = $color;
 
           echo  "This fruits is {$this->name} and Color is {$this->color}";
+        }
+
+        public function display(){
+          echo "Full Name is: ".Fruit::NAME;
         }
 
         public function __destruct(){
@@ -37,7 +42,9 @@
 
 
       $apple = new Fruit("Apple","red");
-      
+      echo "<br>";
+      $apple->display();
+
     ?>
    
      
