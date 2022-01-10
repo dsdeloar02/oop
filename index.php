@@ -21,6 +21,7 @@
         public $name;
         public $color;
         const NAME = "Deluar Hossain Khan";
+        public static $age = "30" ;
 
         public function __construct($name, $color) {
           $this->name = $name;
@@ -29,8 +30,9 @@
           echo  "This fruits is {$this->name} and Color is {$this->color}";
         }
 
-        public function display(){
-          echo "Full Name is: ".Fruit::NAME;
+        public static function display(){
+          echo "Full Name is: ".Fruit::NAME."<br/>";
+          echo "Age is ;".self::$age;
         }
 
         public function __destruct(){
@@ -43,7 +45,7 @@
 
       $apple = new Fruit("Apple","red");
       echo "<br>";
-      $apple->display();
+      Fruit::display();
 
     ?>
    
