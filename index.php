@@ -12,7 +12,7 @@
  <section class="headeroption">
   <h2><?php echo "PHP Code Practice"; ?></h2>
  </section> 
- <section class="maincontent">
+<section class="maincontent">
  
  
   
@@ -27,25 +27,35 @@
           $this->name = $name;
           $this->color = $color;
 
+          
+        }
+
+        public function display(){
+
           echo  "This fruits is {$this->name} and Color is {$this->color}";
         }
 
-        public static function display(){
-          echo "Full Name is: ".Fruit::NAME."<br/>";
-          echo "Age is ;".self::$age;
-        }
+      }
 
-        public function __destruct(){
-          unset($this->name);
-          unset($this->color);
-        }
+      class Admin extends Fruit{
+          public $level;
+          public function display(){
+            echo  "This fruits is {$this->name} and Color is {$this->color} and level is {$this->level}";
+          }
+
       }
 
 
 
       $apple = new Fruit("Apple","red");
       echo "<br>";
-      Fruit::display();
+      $apple->display();
+      echo "<br>";
+      // $fruits = "Orange";
+      // $colors = "Yellow";
+      $admin = new Admin("Orange", "Yellow");
+      $admin->level = "Administrator";
+      $admin->display();
 
     ?>
    
