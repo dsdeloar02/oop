@@ -16,48 +16,23 @@
  
  
   
-    <?php
-      class Fruit {
-        public $name;
-        public $color;
-        const NAME = "Deluar Hossain Khan";
-        public static $age = "30" ;
+<?php
 
-        public function __construct($name, $color) {
-          $this->name = $name;
-          $this->color = $color;
+      for($i=0; $i<10; $i++){}
 
-          
-        }
+      $arr = array("HTML","CSS","JAVA","PHP");
+      $coding = new ArrayObject($arr);
 
-        public function display(){
-
-          echo  "This fruits is {$this->name} and Color is {$this->color}";
-        }
-
+      $iterator = $coding->getIterator();
+      while ($iterator->valid()) {
+        echo $iterator->current()."<br/>";
+        $iterator->next();
       }
 
-      class Admin extends Fruit{
-          public $level;
-          public function display(){
-            echo  "This fruits is {$this->name} and Color is {$this->color} and level is {$this->level}";
-          }
-
-      }
+?>
+    
 
 
-
-      $apple = new Fruit("Apple","red");
-      echo "<br>";
-      $apple->display();
-      echo "<br>";
-      // $fruits = "Orange";
-      // $colors = "Yellow";
-      $admin = new Admin("Orange", "Yellow");
-      $admin->level = "Administrator";
-      $admin->display();
-
-    ?>
    
      
    
