@@ -28,13 +28,17 @@ if (mysqli_connect_errno()){
   echo "Connection Successfull...";
 }
 
-$sql = "select * from formcheck";
+$sql = "update formcheck SET city='DhTaka, php' where id='1'";
+
+$msql = "select name, name from formcheck order by id";
+
 
 $result = $db->query($sql);
-while ($data = $result->fetch_object()) {
-  echo "<pre>";
-  echo $data->city;
-  echo "</pre>";
+$stmt = $db->prepare($msql);
+$stmt->execute();
+$stmt->bind_result($name, $city);
+while ($stmt->fetch()) {
+  echo "$name<br/>";
 }
 
 
