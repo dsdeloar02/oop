@@ -19,26 +19,23 @@
 <?php
 
 
-    spl_autoload_register(function($class_name){
-      include "classes/".$class_name.".php";
-    });
+$db = new mysqli("localhost", "root", "", "elaravel");
 
-    $user = new User();
-    $msg = $user->getMsg();
+if (mysqli_connect_errno()){
+  echo "Connection fail...";
+  exit();
+} else {
+  echo "Connection Successfull...";
+}
 
-    switch ($msg) {
-      case 'email':
-        $objmsg = new SendEmail();
-        break;
-      case 'sms':
-        $objmsg = new SendSms();
-        break;
-      case 'fax':
-        $objmsg = new SendFax();
-        break;
-    }
-    $objmsg->notification();
+$sql = "select * from formcheck";
 
+$result = $db->query($sql);
+while ($data = $result->fetch_object()) {
+  echo "<pre>";
+  echo $data->city;
+  echo "</pre>";
+}
 
 
 
